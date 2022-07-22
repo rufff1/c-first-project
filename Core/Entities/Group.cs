@@ -13,6 +13,8 @@ namespace Core.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public int MaxSize { get; set; }
+        
+        public int CurrentSize { get; set; }
 
     }
 }

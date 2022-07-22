@@ -3,6 +3,7 @@ using Core.Entities;
 using Core.Helpers;
 using DataAccess.Implementations;
 using Manage1.Controller;
+using Manage1.Controllers;
 using System;
 namespace Manage1
 {
@@ -14,6 +15,7 @@ namespace Manage1
 
 
             GroupController _groupController = new GroupController();
+            StudentController _studentController=new StudentController();
 
 
 
@@ -31,6 +33,11 @@ namespace Manage1
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "3 - Delete Group");
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "4 - All Group");
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "5 - Get Group By Name");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "6 - Create Student");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "7 - Update Student");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "8 - Delete Student");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "9 - Get All Student By Group");
+                ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "10 - Get Student By Group");
                 ConsoleHelpers.WriteTextWithColor(ConsoleColor.Yellow, "0 - Exit");
                 Console.WriteLine("--------------------------------------------------");
 
@@ -43,10 +50,11 @@ namespace Manage1
 
                 if (result)
                 {
-                    if (selectedNumber >= 0 && selectedNumber <= 5)
+                    if (selectedNumber >= 0 && selectedNumber <= 10)
                     {
                         switch (selectedNumber)
                         {
+                          
                             case (int)Options.CreateGroup:
                                 _groupController.CreateGroup();
                                 break;
@@ -62,9 +70,25 @@ namespace Manage1
                             case (int)Options.GetGroupByName:
                                 _groupController.GetGroupByName();
                                 break;
+                            case (int)Options.CreateStudent:
+                                _studentController.CreateStudent();
+                                break;
+                                case (int)Options.UpdateStudent:
+                                _studentController.UpdateStudent(); 
+                                break;
+                            case (int)Options.DeleteStudent:
+                                _studentController.DeleteStudent();
+                                break;
+                            case (int)Options.GetAllStudentByGroup:
+                                _studentController.GetAllStudentByGroup();
+                                break;
+                            case (int)Options.GetStudentByGroup:
+                                _studentController.GetStudentByGroup();
+                                break;
                             case (int)Options.Exit:
                                 _groupController.Exit();    
                                 return;
+
 
 
 

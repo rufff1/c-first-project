@@ -11,8 +11,11 @@ namespace DataAccess.Implementations
 {
     public class StudentRepositories : IRepositories<Student>
     {
+        private static int id;
         public Student Create(Student entity)
         {
+            id++;
+            entity.Id = id; 
             DbContext.Students.Add(entity);
             return entity;
         }
